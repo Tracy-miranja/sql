@@ -27,7 +27,7 @@ One attachment
 
 # 📖 MIRANJA TRACY <a name="about-project"></a>
 
-**MIRANJA TRACY SQL** This repository includes files with plain SQL that can be used to recreate a database:
+**MIRANJA TRACY SQL** This repository includes files with SQL that can i have  used to recreate a database:
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -79,12 +79,11 @@ Clone this repository to your desired folder:
 Install this project with:
  
 ```sh
-  cd my-folder
   install PostgreSQL
 ```
 ### Usage
  
-To run the project, open SQL SHELL or PGadmin ,Yourdata will show up.
+To run the project, open PostgreSQL CLI and run command.
  
 <!-- AUTHORS -->
  
