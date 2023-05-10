@@ -20,3 +20,9 @@ CREATE TABLE species (
     id SERIAL PRIMARY KEY,
     name VARCHAR(50) NOT NULL
 );
+
+ALTER TABLE animals ADD COLUMN animal_id SERIAL PRIMARY KEY;
+ALTER TABLE animals DROP COLUMN species;
+ALTER TABLE animals ADD COLUMN species_id INTEGER REFERENCES species(id);
+
+
