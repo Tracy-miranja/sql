@@ -71,3 +71,74 @@ LEFT JOIN animals a ON a.owner_id = o.id
 GROUP BY o.full_name
 ORDER BY count DESC
 LIMIT 1;
+
+.......................................
+SELECT a.name
+FROM animals a
+JOIN visits v ON a.animal_id = v.animal_id
+WHERE a.owner_id = 4
+ORDER BY v.visit_date DESC
+LIMIT 1;
+
+SELECT COUNT(DISTINCT animal_id) AS num_animals_seen
+FROM visits
+WHERE vet_id = (SELECT vet_id FROM vets WHERE name = 'Stephanie Mendez');
+
+SELECT a.name, a.date_of_birth, a.escape_attempts, a.neutered, a.neutered_weight_kg, a.animal_id, a.species_id, a.owner_id
+FROM visits v
+JOIN animals a ON v.animal_id = a.animal_id
+JOIN owners o ON a.owner_id = a.owner_id
+WHERE o.name = 'Stephanie Mendez'
+AND v.visit_date >= '2020-04-01'
+AND v.visit_date <= '2020-08-30';
+
+SELECT a.name AS animal_name, COUNT(*) AS num_visits
+FROM visits v
+JOIN animals a ON v.animal_id = a.animal_id
+GROUP BY a.name
+ORDER BY num_visits DESC
+LIMIT 1;
+
+SELECT animals.*, vets.*, visits.visit_date
+FROM visits
+JOIN animals ON visits.animal_id = animals.animal_id
+JOIN vets ON visits.vet_id = vets.vet_id
+ORDER BY visit_date DESC
+LIMIT 1;
+
+SELECT animals.name AS animal_name, vets.name AS vet_name, visits.date_of_visit
+FROM visits
+JOIN animals ON visits.animal_id = animals.id
+JOIN vets ON visits.vets_id = vets.id
+ORDER BY visits.date_of_visit DESC
+LIMIT 1;
+
+SELECT vets.name, COALESCE(species.name, 'No Specialties') as specialty
+FROM vets
+LEFT JOIN specializations ON vets.id = specializations.vet_id
+LEFT JOIN species ON specializations.species_id = species.id;
+
+SELECT visits.visit_date
+FROM visits
+JOIN vets ON visits.vet_id = vets.id
+WHERE vets.name = 'Maisy Smith'
+ORDER BY visits.visit_date ASC
+LIMIT 1;
+
+SELECT a.species_id, COUNT(*) AS num_visits
+FROM vets v
+JOIN visits vs ON v.id = vs.vet_id
+JOIN animals a ON vs.animal_id = a.animal_id
+WHERE v.name = 'Maisy Smith'
+GROUP BY a.species_id
+ORDER BY num_visits DESC
+LIMIT 1;
+
+SELECT COUNT(*) 
+FROM visits 
+JOIN animals ON visits.animal_id = animals.animal_id 
+JOIN vets ON visits.vet_id = vets.id 
+LEFT JOIN specializations ON vets.id = specializations.vet_id AND animals.species_id = specializations.species_id 
+WHERE specializations.vet_id IS NULL;
+
+
