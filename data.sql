@@ -39,5 +39,53 @@ UPDATE animals SET owner_id = (SELECT id FROM owners WHERE full_name = 'Bob') WH
 UPDATE animals SET owner_id = (SELECT id FROM owners WHERE full_name = 'Melody Pond') WHERE name IN ('Charmander', 'Squirtle', 'Blossom');
 UPDATE animals SET owner_id = (SELECT id FROM owners WHERE full_name = 'Dean Winchester') WHERE name IN ('Angemon', 'Boarmon');
 
+INSERT INTO vets (name, age, date_of_graduation) VALUES
+  ('William Tatcher', 45, '2000-04-23'),
+  ('Maisy Smith', 26, '2019-01-17'),
+  ('Stephanie Mendez', 64, '1981-05-04'),
+  ('Jack Harkness', 38, '2008-06-08');
+
+INSERT INTO specializations (vet_id, species_id) VALUES
+  ((SELECT id FROM vets WHERE name = 'William Tatcher'), (SELECT id FROM species WHERE name = 'Pokemon')),
+  ((SELECT id FROM vets WHERE name = 'Stephanie Mendez'), (SELECT id FROM species WHERE name = 'Digimon')),
+  ((SELECT id FROM vets WHERE name = 'Stephanie Mendez'), (SELECT id FROM species WHERE name = 'Pokemon')),
+  ((SELECT id FROM vets WHERE name = 'Jack Harkness'), (SELECT id FROM species WHERE name = 'Digimon'));
+
+INSERT INTO visits (animal_id, vet_id, visit_date)
+VALUES (1, 2, '2020-07-22');
+
+INSERT INTO visits (animal_id, vet_id, visit_date)
+VALUES
+(2, 4, '2021-02-02'),
+(3, 2, '2020-01-05'),
+(3, 2, '2020-03-08');
+
+INSERT INTO visits (animal_id, vet_id, visit_date)
+VALUES
+(3, 2, '2020-05-14'),
+(4, 3, '2021-05-04'),
+(5, 4, '2021-02-24');
+
+INSERT INTO visits (animal_id, vet_id, visit_date)
+VALUES
+(6, 2, '2019-12-21'),
+(6, 1, '2020-08-10'),
+(6, 2, '2021-04-07');
+
+INSERT INTO visits (animal_id, vet_id, visit_date)
+VALUES
+(3, 3, '2019-09-29'),
+(7, 4, '2020-10-03'),
+(7, 4, '2020-11-04');
+
+INSERT INTO visits (animal_id, vet_id, visit_date)
+VALUES 
+    ((SELECT animal_id FROM animals WHERE name = 'Blossom'), 
+     (SELECT owner_id FROM animals WHERE name = 'Blossom'), 
+     '2020-05-24'),
+    ((SELECT animal_id FROM animals WHERE name = 'Blossom'), 
+     (SELECT owner_id FROM animals WHERE name = 'Blossom'), 
+     '2021-01-11');
+
 
 
