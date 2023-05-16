@@ -27,7 +27,7 @@ One attachment
 
 # 📖 MIRANJA TRACY <a name="about-project"></a>
 
-**MIRANJA TRACY SQL** This repository includes files with SQL that can i have  used to recreate a database:
+**MIRANJA TRACY SQL** This repository includes files with SQL that can we have  used to recreate a database:
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -95,6 +95,11 @@ To run the project, open PostgreSQL CLI and run command.
 - GitHub: [@githubhandle](https://github.com/Tracy-miranja)
 - Twitter: [@twitterhandle](https://twitter.com/tracymiranja)
 - LinkedIn: [LinkedIn](https://linkedin.com/in/tracymiranja)
+
+**Peter Okorafor**
+- GitHub: [@githubhandle](https://github.com/peterdtitan)
+- Twitter: [@twitterhandle](https://twitter.com/Peter Okorafor)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/peterokorafor)
  
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
  
