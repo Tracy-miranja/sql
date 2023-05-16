@@ -49,4 +49,11 @@ CREATE TABLE visits (
   FOREIGN KEY (vet_id) REFERENCES vets(id)
 );
 
+ALTER TABLE owners ADD COLUMN email VARCHAR(120);
+CREATE index visits_animal_id_idx ON visits(animal_id);
+CREATE index visits_vet_id_idx ON visits(vet_id);
+CREATE index owners_email_idx ON owners(email asc);
+
+
+
 

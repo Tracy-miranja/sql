@@ -141,4 +141,8 @@ JOIN vets ON visits.vet_id = vets.id
 LEFT JOIN specializations ON vets.id = specializations.vet_id AND animals.species_id = specializations.species_id 
 WHERE specializations.vet_id IS NULL;
 
+EXPLAIN ANALYZE SELECT COUNT(*) FROM visits where animal_id = 4;
+EXPLAIN ANALYZE SELECT * FROM visits where vet_id = 2;
+EXPLAIN ANALYZE SELECT * FROM owners where email = 'owner_18327@mail.com';`
+
 
